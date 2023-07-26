@@ -7,7 +7,6 @@ const App = () => {
     <Box fontFamily="'Poppins', 'sans-serif'">
       <Header />
       <BodyComponent />
-      {/* <CollectionTabSection /> */}
     </Box>
   );
 };

@@ -48,7 +48,6 @@ export default function Header() {
             color={{ base: "#000", md: "#3696C6" }}
             fontSize={{ base: "18px", md: "24px" }}
             fontWeight="800"
-            fontFamily="Raleway"
           >
             miFIN
           </Text>

@@ -2,7 +2,11 @@ import React from "react";
 import CollectionTabSection from "./collectionTabs";
 
 const BodyComponent = () => {
-  return <CollectionTabSection />;
+  return (
+    <>
+      <CollectionTabSection />
+    </>
+  );
 };
 
 export default BodyComponent;
