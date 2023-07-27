@@ -1,5 +1,5 @@
 import React from "react";
-import Contact from "./collectionPage/Contact";
+import Contact from "./collectionPage/Contact/Contact";
 import Settlement from "./collectionPage/Settlement";
 import Legal from "./collectionPage/Legal";
 import Sarfaesi from "./collectionPage/Sarfaesi";
@@ -33,11 +33,7 @@ const Content = ({ isActive }) => {
         return null;
     }
   };
-  return (
-    <>
-      <Box>{renderComp(isActive)}</Box>
-    </>
-  );
+  return <Box>{renderComp(isActive)}</Box>;
 };
 
 export default Content;

@@ -1,4 +1,4 @@
-import { Grid, GridItem, Text, Image, Show } from "@chakra-ui/react";
+import { Grid, GridItem, Text, Image } from "@chakra-ui/react";
 import ShowIcon from "../../assets/showIcon.svg";
 import React, { Fragment } from "react";
 
@@ -53,6 +53,7 @@ const UserProfileExtend = () => {
         mt="30px"
         pb="41px"
         gap="25px"
+        display={{ base: "none", md: "grid" }}
       >
         {data.map((val, index) => (
           <Fragment key={index}>

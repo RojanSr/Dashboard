@@ -18,6 +18,14 @@ export default function Header() {
   const options = { day: "numeric", month: "short", year: "numeric" };
   const formattedDate = date.toLocaleDateString("en-GB", options);
 
+  const formattedLastLogin = date.toLocaleString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
   return (
     <Flex
       as="header"
@@ -77,7 +85,7 @@ export default function Header() {
           <Text textAlign="right">Mark Anderson</Text>
           <Flex gap={2} alignItems="center">
             <Text fontSize="12px" fontWeight="400" opacity="0.6">
-              Last Login: 17 Sep 2020, 5:40pm
+              Last Login: {formattedLastLogin}
             </Text>
             <Flex
               bgColor="#3E4954"
