@@ -1,6 +1,7 @@
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 import TableComponent from "../../../TableComponent";
+import TabComponent from "../../../TabComponent";
 
 const UpcomingPTP = () => {
   return (
@@ -14,9 +15,10 @@ const UpcomingPTP = () => {
       >
         Upcoming PTP
       </Text>
-      <VStack>
+      <Box mb="68px">
         <TableComponent />
-      </VStack>
+      </Box>
+      <TabComponent />
     </Box>
   );
 };
