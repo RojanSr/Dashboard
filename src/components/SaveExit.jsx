@@ -27,6 +27,7 @@ const SaveExit = () => {
             color="#fff"
             fontSize="14px"
             fontWeight="500"
+            key={btn.name}
             _hover={{
               background: "rgba(255,255,255,0.2)",
             }}
