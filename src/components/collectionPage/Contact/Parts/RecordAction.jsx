@@ -49,7 +49,7 @@ const MenuAction = ({ name, placeholder, hasIcon }) => {
       <Text mb={2}>{name}</Text>
       <Menu>
         <MenuButton
-          w={{ base: "140px", md: "190px", lg: "218px" }}
+          w={{ base: "140px", md: "190px", lg: "250px" }}
           mb="24px"
           //   px={4}
           py={2}
@@ -85,7 +85,7 @@ const InputAction = ({ name, placeholder, hasIcon }) => {
   return (
     <GridItem>
       <Text>{name}</Text>
-      <HStack w={{ base: "140px", md: "190px", lg: "218px" }}>
+      <HStack w={{ base: "140px", md: "190px", lg: "250px" }}>
         <Input
           w="inherit"
           placeholder={placeholder}

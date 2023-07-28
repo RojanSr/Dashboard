@@ -9,6 +9,9 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Button,
+  VStack,
+  Text,
 } from "@chakra-ui/react";
 
 import { Search2Icon } from "@chakra-ui/icons";
@@ -60,7 +63,7 @@ const TabComponent = () => {
         />
       </InputGroup>
 
-      <TabPanels>
+      <TabPanels ml={"-4"}>
         <TabPanel>
           <ActionHistory />
         </TabPanel>
@@ -77,6 +80,20 @@ const TabComponent = () => {
           <DunningHistory />
         </TabPanel>
       </TabPanels>
+      <VStack my="22px">
+        <Button
+          color="#2F4CDD"
+          border="1px solid #2F4CDD"
+          bg="none"
+          fontWeight="500"
+          fontSize="14px"
+          px="16px"
+          py="4px"
+          lineHeight="24px"
+        >
+          View All
+        </Button>
+      </VStack>
     </Tabs>
   );
 };

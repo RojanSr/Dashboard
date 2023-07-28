@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ProfileIcon from "../../assets/ProfileIcon.svg";
 import EditPicture from "../../assets/edit_picture.svg";
 import {
@@ -12,21 +12,25 @@ import {
   Tag,
   TagLabel,
   TagCloseButton,
+  Collapse,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { PhoneIcon, AddIcon, RepeatClockIcon } from "@chakra-ui/icons";
 import LocationIcon from "../../assets/icon_location.svg";
 import MessageIcon from "../../assets/icon_message.svg";
 import UserProfileExtend from "./UserProfileExtend";
 import UserPhoto from "../../assets/UserPhoto.svg";
+import ShowIcon from "../../assets/showIcon.svg";
 
 const UserProfile = () => {
-  const [extend, setExtend] = useState(true);
+  const { isOpen, onToggle } = useDisclosure();
   return (
     <Box
       mx={{ base: "16px", md: "41px" }}
       my="26.5px"
       boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.07)"
       borderRadius="20px"
+      pos="relative"
     >
       <Flex px="17px " py="15px" gap="32px">
         <Box
@@ -269,6 +273,15 @@ const UserProfile = () => {
                 >
                   Repayment Schedule
                 </Button>
+                <Box onClick={onToggle} cursor="pointer">
+                  <Image
+                    src={ShowIcon}
+                    pos="absolute"
+                    right="18px"
+                    bottom="17px"
+                    transform={isOpen ? "rotate(0deg)" : "rotate(180deg)"}
+                  />
+                </Box>
               </Flex>
             </Flex>
           </Flex>
@@ -278,7 +291,9 @@ const UserProfile = () => {
         <Divider w="95%" mx="8px" />
       </Flex>
 
-      {extend && <UserProfileExtend />}
+      <Collapse in={isOpen} animateOpacity>
+        <UserProfileExtend />
+      </Collapse>
     </Box>
   );
 };

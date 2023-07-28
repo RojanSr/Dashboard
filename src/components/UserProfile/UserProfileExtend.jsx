@@ -48,7 +48,6 @@ const UserProfileExtend = () => {
           md: "repeat(2,1fr)",
           lg: "repeat(4, 1fr)",
         }}
-        pos="relative"
         mx="51px"
         mt="30px"
         pb="41px"
@@ -60,7 +59,6 @@ const UserProfileExtend = () => {
             <ItemGrid name={val.name} value={val.value} />
           </Fragment>
         ))}
-        <Image src={ShowIcon} pos="absolute" right="18px" bottom="17px" />
       </Grid>
     </>
   );

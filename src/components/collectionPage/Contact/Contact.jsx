@@ -1,4 +1,4 @@
-import { Button, Flex, Text, Divider, Box } from "@chakra-ui/react";
+import { Flex, Text, Divider, Box } from "@chakra-ui/react";
 import React from "react";
 import RecordAction from "./Parts/RecordAction";
 import UpcomingPTP from "./Parts/UpcomingPTP";
@@ -44,17 +44,25 @@ const Contact = () => {
             Initiate:
           </Text>
           {buttons.map((btn, index) => (
-            <Button
+            <Box
               key={index}
               border="1px solid #2F4CDD"
               bg="none"
               fontWeight="500"
               fontSize="14px"
-              py={2}
+              p="8px 16px"
               color="#2F4CDD"
+              borderRadius="8px"
+              cursor="pointer"
+              _hover={{
+                background: "rgba(0,0,0,0.05)",
+              }}
+              _active={{
+                background: "rgba(0,0,0,0.1)",
+              }}
             >
               {btn.name}
-            </Button>
+            </Box>
           ))}
           <Divider
             orientation="vertical"
@@ -63,15 +71,18 @@ const Contact = () => {
             color="#000"
             mx="25.5"
           />
-          <Button
+          <Box
             border="1px solid #FF0909"
             bg="none"
             fontWeight="500"
             fontSize="14px"
             color="#FF0909"
+            borderRadius="8px"
+            cursor="pointer"
+            p="8px 16px"
           >
             Escalate
-          </Button>
+          </Box>
         </Flex>
       </Flex>
       <Box mx={{ base: "0px", md: "66px" }}>
