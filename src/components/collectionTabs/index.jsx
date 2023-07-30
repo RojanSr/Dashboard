@@ -34,9 +34,14 @@ const CollectionTabSection = () => {
           "&::-webkit-scrollbar": { appearance: "none", height: 0 },
           "&::-moz-scrollbar": { appearance: "none", height: 0 },
         }}
+        m={{ base: "18px 0px 20px 24px", md: "18.5px 45px 24px 30px" }}
       >
-        <Flex m="18.5px 20px 0px 30px" alignItems="center" gap="20px">
-          <ChevronLeftIcon w="24px" h="24px" />
+        <Flex alignItems="center" gap="20px">
+          <ChevronLeftIcon
+            w="24px"
+            h="24px"
+            display={{ base: "none", md: "block" }}
+          />
           {collectionTabLeft.map((obj, index) => {
             return (
               <Box onClick={() => handleClick(obj.name)} key={index}>
@@ -46,7 +51,7 @@ const CollectionTabSection = () => {
           })}
         </Flex>
 
-        <Flex m="18px 45px 0px 0px" alignItems="center" gap="20px">
+        <Flex alignItems="center" gap="20px">
           {collectionTabRight.map((obj, index) => {
             return (
               <Box onClick={() => handleClick(obj.name)} key={index}>

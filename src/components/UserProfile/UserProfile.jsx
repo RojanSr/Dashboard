@@ -27,7 +27,7 @@ const UserProfile = () => {
   return (
     <Box
       mx={{ base: "16px", md: "41px" }}
-      my="26.5px"
+      mb="26.5px"
       boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.07)"
       borderRadius="20px"
       pos="relative"
@@ -50,7 +50,7 @@ const UserProfile = () => {
             right="0"
           />
         </Box>
-        <Flex color="#3E4954" direction="column" gap="10px">
+        <Flex color="#3E4954" direction="column" gap="10px" flexGrow="1">
           <Flex
             justifyContent="space-between"
             alignItems="center"
@@ -77,74 +77,76 @@ const UserProfile = () => {
               </Flex>
             </Box>
             <Flex
-              gap="24px"
               alignItems="center"
               display={{ md: "block", lg: "flex" }}
               ml={{ base: "0px", lg: "30px", xl: "196px" }}
             >
-              <Flex alignItems="center">
-                <PhoneIcon color="#2F4CDD" />
-                <Text mx="3px" fontSize="14px">
-                  +91 9825361829
-                </Text>
-                <Image src={ProfileIcon} w="10.5px" h="8px" ml="3px" />
-              </Flex>
-              <Flex gap="8px" alignItems="center">
-                <Image src={LocationIcon} w="14px" h="20px" />
-                <Text fontSize="14px">15 A Atlantis tower...</Text>
-                <Image src={ProfileIcon} w="10.5px" h="8px" />
-                <Image src={MessageIcon} w="22px" h="15px" mx="22px" />
-                <Divider
-                  h="50px"
-                  orientation="vertical"
-                  color="#000"
-                  opacity="0.6"
-                />
-              </Flex>
-              <Flex direction="column">
-                <Text opacity="0.5" fontSize="12px" mb="6px">
-                  Overall Progress
-                </Text>
-                <Flex gap="12px">
-                  <Text fontSize="15px" fontWeight="700">
-                    29%
+              <Flex gap="24px">
+                <Flex alignItems="center">
+                  <PhoneIcon color="#2F4CDD" />
+                  <Text mx="3px" fontSize="14px">
+                    +91 9825361829
                   </Text>
-                  <Progress
-                    value={29}
-                    size="lg"
-                    h="20px"
-                    colorScheme="green"
-                    borderRadius="20px"
-                    w="118px"
+                  <Image src={ProfileIcon} w="10.5px" h="8px" ml="3px" />
+                </Flex>
+                <Flex gap="8px" alignItems="center">
+                  <Image src={LocationIcon} w="14px" h="20px" />
+                  <Text fontSize="14px">15 A Atlantis tower...</Text>
+                  <Image src={ProfileIcon} w="10.5px" h="8px" />
+                  <Image src={MessageIcon} w="22px" h="15px" mx="22px" />
+                  <Divider
+                    h="50px"
+                    orientation="vertical"
+                    color="#000"
+                    display={{ base: "none", md: "none", lg: "block" }}
+                    opacity="0.6"
                   />
                 </Flex>
               </Flex>
-              <Divider
-                h="50px"
-                orientation="vertical"
-                color="#000"
-                opacity="0.6"
-                display={{ base: "none", lg: "block" }}
-              />
-
-              <Box>
-                <Text opacity="0.5" fontSize="12px" mb="6px">
-                  Loan Status
-                </Text>
-                <Flex
-                  w="84px"
-                  h="23px"
-                  bgColor="#F17E14"
-                  borderRadius="4px"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <Text color="#fff" fontSize="14px">
-                    Pending
-                  </Text>
-                </Flex>
-              </Box>
             </Flex>
+            <Flex direction="column" mx="24px">
+              <Text opacity="0.5" fontSize="12px" mb="6px">
+                Overall Progress
+              </Text>
+              <Flex gap="12px">
+                <Text fontSize="15px" fontWeight="700">
+                  29%
+                </Text>
+                <Progress
+                  value={29}
+                  size="lg"
+                  h="20px"
+                  colorScheme="green"
+                  borderRadius="20px"
+                  w="118px"
+                />
+              </Flex>
+            </Flex>
+            <Divider
+              h="50px"
+              orientation="vertical"
+              color="#000"
+              opacity="0.6"
+              display={{ base: "none", lg: "block" }}
+            />
+
+            <Box ml="24px">
+              <Text opacity="0.5" fontSize="12px" mb="6px">
+                Loan Status
+              </Text>
+              <Flex
+                w="84px"
+                h="23px"
+                bgColor="#F17E14"
+                borderRadius="4px"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Text color="#fff" fontSize="14px">
+                  Pending
+                </Text>
+              </Flex>
+            </Box>
           </Flex>
           <Flex
             direction="column"
@@ -276,7 +278,7 @@ const UserProfile = () => {
                 <Box onClick={onToggle} cursor="pointer">
                   <Image
                     src={ShowIcon}
-                    pos="absolute"
+                    pos={isOpen ? "absolute" : "initial"}
                     right="18px"
                     bottom="17px"
                     transform={isOpen ? "rotate(0deg)" : "rotate(180deg)"}

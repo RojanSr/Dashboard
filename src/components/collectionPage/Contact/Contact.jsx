@@ -80,6 +80,12 @@ const Contact = () => {
             borderRadius="8px"
             cursor="pointer"
             p="8px 16px"
+            _hover={{
+              background: "rgba(0,0,0,0.05)",
+            }}
+            _active={{
+              background: "rgba(0,0,0,0.1)",
+            }}
           >
             Escalate
           </Box>
