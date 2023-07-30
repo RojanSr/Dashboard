@@ -1,17 +1,13 @@
 import {
   Box,
   Text,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   HStack,
   Input,
   Grid,
   GridItem,
   VStack,
+  Select,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import React from "react";
 
 const data = [
@@ -41,45 +37,37 @@ const data = [
   { name: "Remarks", placeholder: "Enter", type: "input", icon: false },
 ];
 
-const MenuAction = ({ name, placeholder, hasIcon }) => {
+const SelectAction = ({ name, placeholder }) => {
   return (
     <GridItem>
       <Text mb={2}>{name}</Text>
-      <Menu>
-        <MenuButton
-          w={{ base: "140px", md: "190px", lg: "250px" }}
-          mb="24px"
-          //   px={4}
-          py={2}
-          borderBottom="1px solid rgba(0, 0, 0, 0.15)"
-          textAlign="start"
-          color="#3E4954;"
-        >
-          <HStack justifyContent="space-between">
-            <Text fontSize="15px" fontWeight="500" opacity="0.5">
-              {placeholder}
-            </Text>
-            {hasIcon && (
-              <ChevronDownIcon
-                stroke="#000"
-                fontSize="18px"
-                strokeWidth="1px"
-              />
-            )}
-          </HStack>
-        </MenuButton>
-        <MenuList>
-          <MenuItem>Option 1</MenuItem>
-          <MenuItem>Option 2</MenuItem>
-          <MenuItem>Option 3</MenuItem>
-          <MenuItem>Option 4</MenuItem>
-        </MenuList>
-      </Menu>
+      <Select
+        placeholder={placeholder}
+        w={{ base: "140px", md: "190px", lg: "250px" }}
+        mb="24px"
+        py={2}
+        color="#3E4954;"
+        mt={"-4"}
+        fontSize="15px"
+        fontWeight="500"
+        opacity="0.5"
+        variant="flushed"
+      >
+        <option value="option1" style={{ fontFamily: "Poppins, sans-serif" }}>
+          Option 1
+        </option>
+        <option value="option2" style={{ fontFamily: "Poppins, sans-serif" }}>
+          Option 2
+        </option>
+        <option value="option3" style={{ fontFamily: "Poppins, sans-serif" }}>
+          Option 3
+        </option>
+      </Select>
     </GridItem>
   );
 };
 
-const InputAction = ({ name, placeholder, hasIcon }) => {
+const InputAction = ({ name, placeholder }) => {
   return (
     <GridItem>
       <Text>{name}</Text>
@@ -130,10 +118,9 @@ const RecordAction = () => {
             if (item.type === "option") {
               return (
                 <Box key={item.name}>
-                  <MenuAction
+                  <SelectAction
                     name={item.name}
                     placeholder={item.placeholder}
-                    hasIcon={item.icon}
                   />
                 </Box>
               );
@@ -143,7 +130,6 @@ const RecordAction = () => {
                   <InputAction
                     name={item.name}
                     placeholder={item.placeholder}
-                    hasIcon={item.icon}
                   />
                 </Box>
               );
