@@ -1,7 +1,8 @@
 import { Flex, Text, Divider, Box } from "@chakra-ui/react";
-import React from "react";
+import React, { Fragment } from "react";
 import RecordAction from "./Parts/RecordAction";
 import UpcomingPTP from "./Parts/UpcomingPTP";
+import SecondaryBtn from "../../button/SecondaryBtn";
 
 const Contact = () => {
   const buttons = [
@@ -43,26 +44,12 @@ const Contact = () => {
           <Text fontSize="14px" fontFamily="Roboto">
             Initiate:
           </Text>
-          {buttons.map((btn, index) => (
-            <Box
-              key={index}
-              border="1px solid #2F4CDD"
-              bg="none"
-              fontWeight="500"
-              fontSize="14px"
-              p="8px 16px"
-              color="#2F4CDD"
-              borderRadius="8px"
-              cursor="pointer"
-              _hover={{
-                background: "rgba(0,0,0,0.05)",
-              }}
-              _active={{
-                background: "rgba(0,0,0,0.1)",
-              }}
-            >
-              {btn.name}
-            </Box>
+
+          {/* Buttons */}
+          {buttons.map((btn) => (
+            <Fragment key={btn.name}>
+              <SecondaryBtn name={btn.name} />
+            </Fragment>
           ))}
           <Divider
             orientation="vertical"
@@ -71,26 +58,10 @@ const Contact = () => {
             color="#000"
             mx="25.5"
           />
-          <Box
-            border="1px solid #FF0909"
-            bg="none"
-            fontWeight="500"
-            fontSize="14px"
-            color="#FF0909"
-            borderRadius="8px"
-            cursor="pointer"
-            p="8px 16px"
-            _hover={{
-              background: "rgba(0,0,0,0.05)",
-            }}
-            _active={{
-              background: "rgba(0,0,0,0.1)",
-            }}
-          >
-            Escalate
-          </Box>
+          <SecondaryBtn name="Escalate" isRed />
         </Flex>
       </Flex>
+
       <Box mx={{ base: "0px", md: "66px" }}>
         <Divider
           w="100vw"

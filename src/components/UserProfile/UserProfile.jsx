@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ProfileIcon from "../../assets/ProfileIcon.svg";
 import EditPicture from "../../assets/edit_picture.svg";
 import {
@@ -21,8 +21,15 @@ import MessageIcon from "../../assets/icon_message.svg";
 import UserProfileExtend from "./UserProfileExtend";
 import UserPhoto from "../../assets/UserPhoto.svg";
 import ShowIcon from "../../assets/showIcon.svg";
+import SecondaryBtn from "../button/SecondaryBtn";
 
 const UserProfile = () => {
+  const btns = [
+    { name: "SOA" },
+    { name: "Stat Card" },
+    { name: "Repayment-Schedule" },
+  ];
+
   const { isOpen, onToggle } = useDisclosure();
   return (
     <Box
@@ -244,37 +251,16 @@ const UserProfile = () => {
                   cursor="pointer"
                 />
               </Flex>
+
+              {/* User Dedicated Buttons */}
+
               <Flex gap="10px">
-                <Button
-                  color="#2F4CDD"
-                  fontSize="14px"
-                  fontWeight="500"
-                  bg="none"
-                  border="1px solid #2F4CDD"
-                  p="4px 16px"
-                >
-                  SOA
-                </Button>
-                <Button
-                  color="#2F4CDD"
-                  fontSize="14px"
-                  fontWeight="500"
-                  bg="none"
-                  border="1px solid #2F4CDD"
-                  p="4px 16px"
-                >
-                  Stat-Card
-                </Button>
-                <Button
-                  color="#2F4CDD"
-                  fontSize="14px"
-                  fontWeight="500"
-                  bg="none"
-                  border="1px solid #2F4CDD"
-                  p="4px 16px"
-                >
-                  Repayment Schedule
-                </Button>
+                {btns.map((btn) => (
+                  <Fragment key={btn.name}>
+                    <SecondaryBtn name={btn.name} />
+                  </Fragment>
+                ))}
+
                 <Box onClick={onToggle} cursor="pointer">
                   <Image
                     src={ShowIcon}

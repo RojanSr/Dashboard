@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Box, Flex } from "@chakra-ui/react";
-import CollectionTab from "./CollectionTab";
+import PrimaryBtn from "../button/PrimaryBtn";
 import Content from "../Content";
 import UserProfile from "../UserProfile/UserProfile";
 
@@ -45,7 +45,7 @@ const CollectionTabSection = () => {
           {collectionTabLeft.map((obj, index) => {
             return (
               <Box onClick={() => handleClick(obj.name)} key={index}>
-                <CollectionTab name={obj.name} click={clickName} />
+                <PrimaryBtn name={obj.name} click={clickName} />
               </Box>
             );
           })}
@@ -55,7 +55,7 @@ const CollectionTabSection = () => {
           {collectionTabRight.map((obj, index) => {
             return (
               <Box onClick={() => handleClick(obj.name)} key={index}>
-                <CollectionTab name={obj.name} click={clickName} />
+                <PrimaryBtn name={obj.name} click={clickName} />
               </Box>
             );
           })}

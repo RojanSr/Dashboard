@@ -20,6 +20,7 @@ import PTPlog from "./collectionPage/Contact/Parts/TabActions/PTPlog";
 import EscalationHistory from "./collectionPage/Contact/Parts/TabActions/EscalationHistory";
 import AllocationHistory from "./collectionPage/Contact/Parts/TabActions/AllocationHistory";
 import DunningHistory from "./collectionPage/Contact/Parts/TabActions/DunningHistory";
+import SecondaryBtn from "./button/SecondaryBtn";
 
 const tabData = [
   { name: "Action History" },
@@ -81,18 +82,7 @@ const TabComponent = () => {
         </TabPanel>
       </TabPanels>
       <VStack my="22px">
-        <Button
-          color="#2F4CDD"
-          border="1px solid #2F4CDD"
-          bg="none"
-          fontWeight="500"
-          fontSize="14px"
-          px="16px"
-          py="4px"
-          lineHeight="24px"
-        >
-          View All
-        </Button>
+        <SecondaryBtn name="View All" />
       </VStack>
     </Tabs>
   );

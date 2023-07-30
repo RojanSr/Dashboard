@@ -1,9 +1,9 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import React from "react";
 
-const CollectionTab = (props) => {
+export default function PrimaryBtn(props) {
   return (
-    <Flex
+    <Button
       p="10px 15px"
       borderRadius="8px"
       justifyContent="center"
@@ -12,9 +12,12 @@ const CollectionTab = (props) => {
       bgColor={props.click === props.name ? "#3E4954" : "#EEF0F6"}
       cursor="pointer"
       height="38px"
+      fontWeight="400"
+      _hover={{
+        opacity: 0.8,
+      }}
     >
       <Text fontSize="15px">{props.name}</Text>
-    </Flex>
+    </Button>
   );
-};
-export default CollectionTab;
+}
