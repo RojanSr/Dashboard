@@ -1,16 +1,17 @@
 import React from "react";
-import Contact from "./collectionPage/Contact/Contact";
-import Settlement from "./collectionPage/Settlement";
-import Legal from "./collectionPage/Legal";
-import Sarfaesi from "./collectionPage/Sarfaesi";
-import Applicant from "./collectionPage/Applicant";
-import Asset from "./collectionPage/Asset";
-import Notepad from "./collectionPage/Notepad";
-import Document from "./collectionPage/Document";
+import Contact from "./Contact";
+
+import Settlement from "./Settlement";
+import Legal from "./Legal";
+import Sarfaesi from "./Sarfaesi";
+import Applicant from "./Applicant";
+import Asset from "./Asset";
+import Notepad from "./Notepad";
+import Document from "./Document";
 
 import { Box } from "@chakra-ui/react";
 
-const Content = ({ isActive }) => {
+const RenderPage = ({ isActive }) => {
   const renderComp = (active) => {
     switch (active) {
       case "Contact":
@@ -36,4 +37,4 @@ const Content = ({ isActive }) => {
   return <Box>{renderComp(isActive)}</Box>;
 };
 
-export default Content;
+export default RenderPage;

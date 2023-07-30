@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Flex } from "@chakra-ui/react";
 
-const FooterComponent = () => {
+const Footer = () => {
   return (
     <>
       <Flex
@@ -36,4 +36,4 @@ const FooterComponent = () => {
   );
 };
 
-export default FooterComponent;
+export default Footer;

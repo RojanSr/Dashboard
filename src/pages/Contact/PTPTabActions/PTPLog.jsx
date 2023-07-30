@@ -1,5 +1,5 @@
 import React from "react";
-import TableComponent from "../../../../TableComponent";
+import TableComponent from "../../../components/TableComponent";
 
 const PTPlog = () => {
   return (

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Box, Flex } from "@chakra-ui/react";
-import PrimaryBtn from "../button/PrimaryBtn";
-import Content from "../Content";
-import UserProfile from "../UserProfile/UserProfile";
+import PrimaryBtn from "../components/button/PrimaryBtn";
+import RenderPage from "./RenderPage";
+import UserProfile from "../components/UserProfile/UserProfile";
 
-const CollectionTabSection = () => {
+const SwitchPage = () => {
   const collectionTabLeft = [
     { name: "Contact" },
     { name: "Settlement" },
@@ -62,9 +62,9 @@ const CollectionTabSection = () => {
         </Flex>
       </Flex>
       <UserProfile />
-      <Content isActive={clickName} />
+      <RenderPage isActive={clickName} />
     </>
   );
 };
 
-export default CollectionTabSection;
+export default SwitchPage;

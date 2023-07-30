@@ -10,11 +10,9 @@ import {
   Grid,
   GridItem,
   VStack,
-  InputRightElement,
-  InputGroup,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import React, { Fragment } from "react";
+import React from "react";
 
 const data = [
   { name: "Action", placeholder: "Select", type: "option", icon: true },

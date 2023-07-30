@@ -1,7 +1,7 @@
 import { Box, Flex, Text, Divider, Image } from "@chakra-ui/react";
 import React, { Fragment } from "react";
-import TableComponent from "../../../TableComponent";
-import TabComponent from "../../../TabComponent";
+import TableComponent from "../../components/TableComponent";
+import TabComponent from "../../components/TabComponent";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 const MobileSafari = ({ text }) => {

@@ -1,8 +1,8 @@
 import { Flex, Text, Divider, Box } from "@chakra-ui/react";
 import React, { Fragment } from "react";
-import RecordAction from "./Parts/RecordAction";
-import UpcomingPTP from "./Parts/UpcomingPTP";
-import SecondaryBtn from "../../button/SecondaryBtn";
+import RecordAction from "./RecordAction";
+import UpcomingPTP from "./UpcomingPTP";
+import SecondaryBtn from "../../components/button/SecondaryBtn";
 
 const Contact = () => {
   const buttons = [

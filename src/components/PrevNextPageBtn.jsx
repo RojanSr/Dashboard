@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-const ChangePage = () => {
+const PrevNextPageBtn = () => {
   return (
     <Flex justifyContent="space-between" mx="18px" mt="7px" mb="62px">
       <Flex alignItems="center" gap={3}>
@@ -25,4 +25,4 @@ const ChangePage = () => {
     </Flex>
   );
 };
-export default ChangePage;
+export default PrevNextPageBtn;

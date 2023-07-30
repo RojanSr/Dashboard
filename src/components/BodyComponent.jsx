@@ -1,13 +1,13 @@
 import React from "react";
-import CollectionTabSection from "./collectionTabs";
-import ChangePage from "./ChangePage";
+import SwitchPage from "../pages/SwitchPage";
+import PrevNextPageBtn from "./PrevNextPageBtn";
 import SaveExit from "./SaveExit";
 
 const BodyComponent = () => {
   return (
     <>
-      <CollectionTabSection />
-      <ChangePage />
+      <SwitchPage />
+      <PrevNextPageBtn />
       <SaveExit />
     </>
   );

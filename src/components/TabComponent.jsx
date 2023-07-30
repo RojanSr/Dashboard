@@ -9,17 +9,15 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Button,
   VStack,
-  Text,
 } from "@chakra-ui/react";
 
 import { Search2Icon } from "@chakra-ui/icons";
-import ActionHistory from "./collectionPage/Contact/Parts/TabActions/ActionHistory";
-import PTPlog from "./collectionPage/Contact/Parts/TabActions/PTPlog";
-import EscalationHistory from "./collectionPage/Contact/Parts/TabActions/EscalationHistory";
-import AllocationHistory from "./collectionPage/Contact/Parts/TabActions/AllocationHistory";
-import DunningHistory from "./collectionPage/Contact/Parts/TabActions/DunningHistory";
+import ActionHistory from "../pages/Contact/PTPTabActions/ActionHistory";
+import PTPlog from "../pages/Contact/PTPTabActions/PTPLog";
+import EscalationHistory from "../pages/Contact/PTPTabActions/EscalationHistory";
+import AllocationHistory from "../pages/Contact/PTPTabActions/AllocationHistory";
+import DunningHistory from "../pages/Contact/PTPTabActions/DunningHistory";
 import SecondaryBtn from "./button/SecondaryBtn";
 
 const tabData = [
