@@ -8,7 +8,7 @@ import FloatUploadIcon from "../assets/float_upload.svg";
 const FloatTool = () => {
   return (
     <Flex
-      boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.10)"
+      boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.3)"
       minW={{ base: "311px", md: "255px" }}
       h={{ base: "72px", md: "59px" }}
       justifyContent="center"
