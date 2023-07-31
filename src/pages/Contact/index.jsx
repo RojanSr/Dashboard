@@ -19,7 +19,7 @@ const Contact = () => {
     >
       <Flex
         justifyContent="space-between"
-        w="inherit"
+        // w="inherit"
         alignItems="center"
         mb="24px"
         display={{ base: "block", md: "flex" }}
@@ -47,9 +47,9 @@ const Contact = () => {
 
           {/* Buttons */}
           {buttons.map((btn) => (
-            <Fragment key={btn.name}>
+            <Box key={btn.name}>
               <SecondaryBtn name={btn.name} />
-            </Fragment>
+            </Box>
           ))}
           <Divider
             orientation="vertical"
