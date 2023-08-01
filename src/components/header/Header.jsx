@@ -23,6 +23,7 @@ import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
 // assets import
 import MainLogo from "../../assets/MainLogo.svg";
 import CompanyLogo from "../../assets/CompanyLogo.png";
+import NotificationIcon from "../../assets/notification.svg";
 import { Link } from "react-router-dom";
 
 export default function Header({ toggleBar, isOpen }) {
@@ -110,22 +111,47 @@ export default function Header({ toggleBar, isOpen }) {
             </Text>
           </Flex>
           <Box ml={5}>
-            <Text textAlign="right">Mark Anderson</Text>
-            <Flex gap={2} alignItems="center">
-              <Text fontSize="12px" fontWeight="400" opacity="0.6">
-                Last Login: {formattedLastLogin}
-              </Text>
-              <Flex
-                bgColor="#3E4954"
-                color="#fff"
-                p="4px 12px"
-                borderRadius="4px"
-                fontSize="12px"
-                height="22px"
-                alignItems="center"
+            <Flex alignItems="center">
+              <Box
+                w="24px"
+                h="28px"
+                mr="37px"
+                position="relative"
+                _after={{
+                  content: "'13'",
+                  position: "absolute",
+                  top: "0px",
+                  right: "-6px",
+                  backgroundColor: "#FF0909",
+                  padding: "0px 4px",
+                  fontSize: "11px",
+                  fontWeight: 400,
+                  borderRadius: "6px",
+                  color: "#fff",
+                }}
               >
-                <Text>{formattedDate}</Text>
-              </Flex>
+                <Image src={NotificationIcon} />
+              </Box>
+
+              <Box>
+                <Text textAlign="right">Mark Anderson</Text>
+                <Flex gap={2} alignItems="center">
+                  <Text fontSize="12px" fontWeight="400" opacity="0.6">
+                    Last Login: {formattedLastLogin}
+                  </Text>
+                  <Flex
+                    bgColor="#3E4954"
+                    color="#fff"
+                    p="4px 12px"
+                    borderRadius="4px"
+                    fontSize="12px"
+                    height="22px"
+                    alignItems="center"
+                  >
+                    <Text>{formattedDate}</Text>
+                  </Flex>
+                </Flex>
+              </Box>
             </Flex>
           </Box>
 
