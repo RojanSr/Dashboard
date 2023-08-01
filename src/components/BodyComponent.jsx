@@ -13,10 +13,10 @@ const BodyComponent = () => {
       <SaveExit />
       <Flex
         position="sticky"
-        left={{ base: "50%", md: "15px" }}
-        bottom="30px"
+        bottom="21px"
         justifyContent="center"
         display={{ base: "flex", md: "block" }}
+        ml={{ base: "0px", md: "15px" }}
       >
         <FloatTool />
       </Flex>

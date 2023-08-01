@@ -129,11 +129,12 @@ export default function Header({ toggleBar, isOpen }) {
                   borderRadius: "6px",
                   color: "#fff",
                 }}
+                cursor="pointer"
               >
                 <Image src={NotificationIcon} />
               </Box>
 
-              <Box>
+              <Box cursor="pointer">
                 <Text textAlign="right">Mark Anderson</Text>
                 <Flex gap={2} alignItems="center">
                   <Text fontSize="12px" fontWeight="400" opacity="0.6">

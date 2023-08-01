@@ -15,7 +15,7 @@ const Contact = () => {
   return (
     <Box
       // w={{ base: "calc(100vw-32px)", md: "calc(100vw - 88px)" }}
-      mx={{ base: "16px", md: "0px", lg: "44px" }}
+      mx={{ base: "16px", lg: "44px" }}
     >
       <Flex
         justifyContent="space-between"
@@ -62,7 +62,7 @@ const Contact = () => {
         </Flex>
       </Flex>
 
-      <Box mx={{ base: "7px", lg: "66px" }}>
+      <Box mx={{ base: "0px", md: "66px" }}>
         <Divider
           w="100vw"
           transform="translateX(-16px)"
@@ -70,8 +70,6 @@ const Contact = () => {
           display={{ base: "block", md: "none" }}
         ></Divider>
         <RecordAction />
-      </Box>
-      <Box mx={{ base: "7px", lg: "66px" }}>
         <UpcomingPTP />
       </Box>
     </Box>

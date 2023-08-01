@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
           <Header toggleBar={updateOpenState} isOpen={isOpen} />
         </Box>
         <Box
-          px={{ sm: 4, md: 8 }}
+          // px={{ sm: 4, md: 8 }}
           pt={0}
           pb={6}
           h="full"

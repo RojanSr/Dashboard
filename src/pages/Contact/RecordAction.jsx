@@ -48,7 +48,7 @@ const SelectAction = ({ name, placeholder }) => {
         py={2}
         color="#3E4954;"
         mt={"-4"}
-        fontSize="15px"
+        fontSize={{ base: "14px", md: "15px" }}
         cursor="pointer"
         fontWeight="500"
         variant="flushed"

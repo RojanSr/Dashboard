@@ -1,8 +1,9 @@
-import { Box, Flex, Text, Divider, Image } from "@chakra-ui/react";
+import { Box, Flex, Text, Divider, Accordion } from "@chakra-ui/react";
 import React, { Fragment } from "react";
 import TableComponent from "../../components/TableComponent";
 import TabComponent from "../../components/TabComponent";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import AccordionComp from "../../components/accordion";
 
 const MobileSafari = ({ text }) => {
   return (
@@ -46,7 +47,7 @@ const UpcomingPTP = () => {
         <Text
           color="#3E4954"
           fontSize={{ base: "20px", md: "24px" }}
-          mb="25px"
+          mb="10px"
           mt={{ base: "21px", md: "0px" }}
           fontWeight="700"
         >
@@ -60,13 +61,13 @@ const UpcomingPTP = () => {
 
       {/* Mobile view */}
       <Box display={{ base: "block", md: "none" }}>
-        <Fragment>
+        <Accordion allowToggle mx="-9px">
           {data.map((el) => (
-            <Box key={el.name}>
-              <MobileSafari text={el.name} />
-            </Box>
+            <Fragment key={el.name}>
+              <AccordionComp text={el.name} el={<TableComponent />} />
+            </Fragment>
           ))}
-        </Fragment>
+        </Accordion>
         <Divider
           orientation="horizontal"
           mb="41px"
