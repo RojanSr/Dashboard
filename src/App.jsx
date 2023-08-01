@@ -1,16 +1,10 @@
-import { Box } from "@chakra-ui/react";
-import Header from "./components/Header";
-import BodyComponent from "./components/BodyComponent";
-import FloatTool from "./components/FloatTool";
-import Footer from "./components/Footer";
+import AppRoutes from "./routes/AppRoutes";
+import Provider from "./providers";
 const App = () => {
   return (
-    <Box fontFamily="'Poppins', 'sans-serif'" maxW="100vw" overflow="hidden">
-      <Header />
-      <BodyComponent />
-      <Footer />
-      <FloatTool />
-    </Box>
+    <Provider>
+      <AppRoutes />
+    </Provider>
   );
 };
 

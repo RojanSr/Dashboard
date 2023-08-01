@@ -9,7 +9,6 @@ const Footer = () => {
         alignItems="center"
         pt={{ base: "11px", lg: "9px" }}
         pb={{ base: "14px", lg: "10px" }}
-        w="100vw"
         bgColor="#F2F1F1"
         fontSize="14px"
         fontWeight="400"

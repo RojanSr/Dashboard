@@ -26,7 +26,7 @@ const SwitchPage = () => {
     setClickName(name);
   }
   return (
-    <>
+    <Box>
       <Flex
         justifyContent="space-between"
         overflowX="auto"
@@ -63,7 +63,7 @@ const SwitchPage = () => {
       </Flex>
       <UserProfile />
       <RenderPage isActive={clickName} />
-    </>
+    </Box>
   );
 };
 

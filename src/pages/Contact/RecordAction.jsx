@@ -112,7 +112,7 @@ const RecordAction = () => {
             lg: "repeat(2, 1fr)",
             xl: "repeat(4, 1fr)",
           }}
-          gridColumnGap={{ base: "16px", md: "32px", lg: "116px" }}
+          gridColumnGap={{ base: "16px", md: "32px", lg: "56px" }}
         >
           {data.map((item) => {
             if (item.type === "option") {

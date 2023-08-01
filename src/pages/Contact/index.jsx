@@ -14,7 +14,7 @@ const Contact = () => {
 
   return (
     <Box
-      w={{ base: "calc(100vw-32px)", md: "calc(100vw - 88px)" }}
+      // w={{ base: "calc(100vw-32px)", md: "calc(100vw - 88px)" }}
       mx={{ base: "16px", md: "44px" }}
     >
       <Flex

@@ -33,7 +33,7 @@ const UserProfile = () => {
   const { isOpen, onToggle } = useDisclosure();
   return (
     <Box
-      mx={{ base: "16px", md: "41px" }}
+      mx="16px"
       mb="26.5px"
       boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.07)"
       borderRadius="20px"

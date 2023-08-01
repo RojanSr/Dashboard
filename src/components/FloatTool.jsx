@@ -21,6 +21,7 @@ const FloatTool = () => {
       transform={{ base: "translateX(-50%)", md: "none" }}
       bottom="30px"
       bgColor="#fff"
+      zIndex="1"
     >
       <Box>
         <ChevronDownIcon fontSize="22px" transform="translateX(5px)" />
