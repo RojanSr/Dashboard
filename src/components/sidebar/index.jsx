@@ -34,34 +34,43 @@ const Sidebar = ({ isOpen, toggleBar }) => {
       color="#fff"
       display={isOpen ? "block" : "none"}
       position="fixed"
-      zIndex="1"
+      zIndex="9"
     >
       {/* Sidebar Logo */}
-      <Flex p="19px 24px" gap="22px" alignItems="center">
+
+      <Flex p="19px 24px" gap="22px" alignItems="center" bg="#000">
         <HamburgerIcon fontSize="24px" onClick={toggleBar} cursor="pointer" />
-        <HStack gap="10px">
-          <Image
-            src={MainLogo}
-            h={{ base: "32px", md: "42px" }}
-            w={{ base: "32px", md: "42px" }}
-          />
-          <Box lineHeight="16px">
-            <Text
-              color="#3696C6"
-              fontSize={{ base: "18px", md: "24px" }}
-              fontWeight="800"
-            >
-              miFIN
-            </Text>
-            <Text
-              color="#0F6889"
-              fontSize={{ base: "8px", md: "12px" }}
-              fontWeight="500"
-            >
-              qualtech
-            </Text>
-          </Box>
-        </HStack>
+        <Link
+          to={NAVIGATION_ROUTES.DASHBOARD}
+          onClick={() => {
+            setClickName("Dashboard");
+            toggleBar();
+          }}
+        >
+          <HStack gap="10px">
+            <Image
+              src={MainLogo}
+              h={{ base: "32px", md: "42px" }}
+              w={{ base: "32px", md: "42px" }}
+            />
+            <Box lineHeight="16px">
+              <Text
+                color="#3696C6"
+                fontSize={{ base: "18px", md: "24px" }}
+                fontWeight="800"
+              >
+                miFIN
+              </Text>
+              <Text
+                color="#0F6889"
+                fontSize={{ base: "8px", md: "12px" }}
+                fontWeight="500"
+              >
+                qualtech
+              </Text>
+            </Box>
+          </HStack>
+        </Link>
       </Flex>
 
       {/* Sidebar Items */}

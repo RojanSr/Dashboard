@@ -3,7 +3,7 @@ import SwitchPage from "../pages/SwitchPage";
 import PrevNextPageBtn from "./PrevNextPageBtn";
 import SaveExit from "./SaveExit";
 import FloatTool from "./FloatTool";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
 const BodyComponent = () => {
   return (
@@ -11,7 +11,15 @@ const BodyComponent = () => {
       <SwitchPage />
       <PrevNextPageBtn />
       <SaveExit />
-      <FloatTool />
+      <Flex
+        position="sticky"
+        left={{ base: "50%", md: "15px" }}
+        bottom="30px"
+        justifyContent="center"
+        display={{ base: "flex", md: "block" }}
+      >
+        <FloatTool />
+      </Flex>
     </Box>
   );
 };

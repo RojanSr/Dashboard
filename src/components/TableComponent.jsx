@@ -1,5 +1,6 @@
 import React from "react";
 import { useTable } from "react-table";
+import { Box } from "@chakra-ui/react";
 import {
   Table,
   Thead,
@@ -99,61 +100,63 @@ const TableComponent = () => {
     useTable({ columns, data });
 
   return (
-    <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <th
-                {...column.getHeaderProps()}
-                style={{
-                  marginTop: "8px",
-                  padding: "28px 16px",
-                  borderBottom: "1px solid #E5E7EB",
-                  background: "#FFF",
-                  color: "black",
-                  fontWeight: "500",
-                  fontSize: "16px",
-                  fontFamily: '"Poppins", sans-serif',
-                  width: "auto",
-                  textAlign: "start",
-                }}
-              >
-                {column.render("Header")}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return (
-                  <td
-                    {...cell.getCellProps()}
-                    style={{
-                      marginBottom: "8px",
-                      padding: "16px",
-                      background: "#F9FAFB",
-                      textAlign: "center",
-                      fontFamily: '"Roboto", sans-serif',
-                      fontWeight: "400",
-                      fontSize: "15px",
-                      color: "#3E4954",
-                    }}
-                  >
-                    {cell.render("Cell")}
-                  </td>
-                );
-              })}
+    <Box overflow="auto">
+      <table {...getTableProps()}>
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th
+                  {...column.getHeaderProps()}
+                  style={{
+                    marginTop: "8px",
+                    padding: "28px 16px",
+                    borderBottom: "1px solid #E5E7EB",
+                    background: "#FFF",
+                    color: "black",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    fontFamily: '"Poppins", sans-serif',
+                    width: "auto",
+                    textAlign: "start",
+                  }}
+                >
+                  {column.render("Header")}
+                </th>
+              ))}
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return (
+                    <td
+                      {...cell.getCellProps()}
+                      style={{
+                        marginBottom: "8px",
+                        padding: "16px",
+                        background: "#F9FAFB",
+                        textAlign: "center",
+                        fontFamily: '"Roboto", sans-serif',
+                        fontWeight: "400",
+                        fontSize: "15px",
+                        color: "#3E4954",
+                      }}
+                    >
+                      {cell.render("Cell")}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </Box>
   );
 };
 

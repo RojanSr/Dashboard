@@ -62,7 +62,7 @@ const TabComponent = () => {
         />
       </InputGroup>
 
-      <TabPanels ml={"-4"}>
+      <TabPanels>
         <TabPanel>
           <ActionHistory />
         </TabPanel>

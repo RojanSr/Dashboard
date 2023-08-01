@@ -49,9 +49,10 @@ const SelectAction = ({ name, placeholder }) => {
         color="#3E4954;"
         mt={"-4"}
         fontSize="15px"
+        cursor="pointer"
         fontWeight="500"
-        opacity="0.5"
         variant="flushed"
+        opacity="0.5"
       >
         <option value="option1" style={{ fontFamily: "Poppins, sans-serif" }}>
           Option 1

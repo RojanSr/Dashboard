@@ -51,7 +51,7 @@ const SwitchPage = () => {
           })}
         </Flex>
 
-        <Flex alignItems="center" gap="20px">
+        <Flex alignItems="center" gap="20px" ml="20px">
           {collectionTabRight.map((obj, index) => {
             return (
               <Box onClick={() => handleClick(obj.name)} key={index}>

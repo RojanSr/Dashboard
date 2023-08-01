@@ -18,9 +18,9 @@ const Layout = ({ children }) => {
         flexGrow={1}
         display="flex"
         flexDirection="column"
-        maxW={isOpen ? "84vw" : "100vw"}
+        maxW={{ base: "100vw", lg: isOpen ? "84vw" : "100vw" }}
         boxShadow={"0 0 10px 0 rgba(0,0,0,0.5)"}
-        transform={isOpen && "translateX(16vw)"}
+        transform={{ base: "", lg: isOpen && "translateX(16vw)" }}
       >
         <Box
           flex={1}
@@ -35,7 +35,6 @@ const Layout = ({ children }) => {
           <Header toggleBar={updateOpenState} isOpen={isOpen} />
         </Box>
         <Box
-          // flexGrow={1}
           px={{ sm: 4, md: 8 }}
           pt={0}
           pb={6}

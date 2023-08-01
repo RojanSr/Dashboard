@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 
 // chakra import
-import { Box, Image, Flex, Text, HStack } from "@chakra-ui/react";
-import { HamburgerIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Image,
+  Flex,
+  Text,
+  HStack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Button,
+} from "@chakra-ui/react";
+import {
+  HamburgerIcon,
+  ChevronDownIcon,
+  ChevronLeftIcon,
+} from "@chakra-ui/icons";
+import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
 
 // assets import
 import MainLogo from "../../assets/MainLogo.svg";
 import CompanyLogo from "../../assets/CompanyLogo.png";
+import { Link } from "react-router-dom";
 
 export default function Header({ toggleBar, isOpen }) {
   let date = new Date();
@@ -40,29 +57,40 @@ export default function Header({ toggleBar, isOpen }) {
             display={{ base: "none", md: "block" }}
             onClick={() => toggleBar()}
           />
-          <HStack gap="10px">
-            <Image
-              src={MainLogo}
-              h={{ base: "32px", md: "42px" }}
-              w={{ base: "32px", md: "42px" }}
-            />
-            <Box lineHeight="16px">
-              <Text
-                color={{ base: "#000", md: "#3696C6" }}
-                fontSize={{ base: "18px", md: "24px" }}
-                fontWeight="800"
-              >
-                miFIN
-              </Text>
-              <Text
-                color={{ base: "#000", md: "#0F6889" }}
-                fontSize={{ base: "8px", md: "12px" }}
-                fontWeight="500"
-              >
-                qualtech
-              </Text>
-            </Box>
-          </HStack>
+          <ChevronLeftIcon
+            fontSize="28px"
+            cursor="pointer"
+            onClick={() => toggleBar()}
+            _hover={{
+              transform: "scale(1.1)",
+            }}
+            transition="0.12s ease-in"
+          />
+          <Link to={NAVIGATION_ROUTES.DASHBOARD}>
+            <HStack gap="10px">
+              <Image
+                src={MainLogo}
+                h={{ base: "32px", md: "42px" }}
+                w={{ base: "32px", md: "42px" }}
+              />
+              <Box lineHeight="16px">
+                <Text
+                  color={{ base: "#000", md: "#3696C6" }}
+                  fontSize={{ base: "18px", md: "24px" }}
+                  fontWeight="800"
+                >
+                  miFIN
+                </Text>
+                <Text
+                  color={{ base: "#000", md: "#0F6889" }}
+                  fontSize={{ base: "8px", md: "12px" }}
+                  fontWeight="500"
+                >
+                  qualtech
+                </Text>
+              </Box>
+            </HStack>
+          </Link>
         </Flex>
 
         <Flex
@@ -100,7 +128,18 @@ export default function Header({ toggleBar, isOpen }) {
               </Flex>
             </Flex>
           </Box>
-          <ChevronDownIcon fontSize="28px" cursor="pointer" />
+
+          <Menu>
+            <MenuButton as={Button} bg="none" px={-3}>
+              <ChevronDownIcon fontSize="28px" cursor="pointer" />
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Profile</MenuItem>
+              <MenuItem>History</MenuItem>
+              <MenuItem>Settings</MenuItem>
+              <MenuItem>Log Out</MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
       </Flex>
     </Box>

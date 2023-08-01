@@ -55,6 +55,11 @@ const UserProfile = () => {
             pos="absolute"
             bottom="0"
             right="0"
+            cursor="pointer"
+            _hover={{
+              transform: "scale(1.11)",
+            }}
+            transition="0.1s ease-in"
           />
         </Box>
         <Flex color="#3E4954" direction="column" gap="10px" flexGrow="1">

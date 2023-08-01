@@ -5,6 +5,7 @@ export const theme = extendTheme({
     global: {
       body: {
         fontFamily: "'Poppins', sans-serif",
+        overflowX: "hidden",
       },
       a: {
         _hover: {
