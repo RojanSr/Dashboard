@@ -3,7 +3,7 @@ import { Box, Text, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import FormInput from "../../components/form/input";
 import UsernameIcon from "../../assets/Login/username_icon.svg";
-import LockIcon from "../../assets/Login/lock_icon.svg";
+import { LockIcon } from "@chakra-ui/icons";
 import AtIcon from "../../assets/Login/at-solid.svg";
 import FormBtn from "../../components/button/FormBtn";
 import { mifin_colors } from "../../theme/color";
@@ -30,9 +30,13 @@ const Signup = () => {
 
       <FormInput leftIcon={UsernameIcon} placeholder="Username" type="text" />
       <FormInput leftIcon={AtIcon} placeholder="Email" type="email" />
-      <FormInput leftIcon={LockIcon} placeholder="Password" type="password" />
       <FormInput
-        leftIcon={LockIcon}
+        leftIcon={<LockIcon />}
+        placeholder="Password"
+        type="password"
+      />
+      <FormInput
+        leftIcon={<LockIcon />}
         placeholder="Confirm Password"
         type="password"
       />

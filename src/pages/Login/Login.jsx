@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, Button, Box } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import UsernameIcon from "../../assets/Login/username_icon.svg";
-import LockIcon from "../../assets/Login/lock_icon.svg";
+import { LockIcon } from "@chakra-ui/icons";
 import FormInput from "../../components/form/input";
 import GoogleIcon from "../../assets/Login/google_icon.svg";
 import FacebookIcon from "../../assets/Login/facebook_icon.svg";
@@ -33,7 +33,11 @@ const Login = () => {
 
       <FormInput leftIcon={UsernameIcon} placeholder="Username" type="text" />
 
-      <FormInput leftIcon={LockIcon} placeholder="Password" type="password" />
+      <FormInput
+        leftIcon={<LockIcon />}
+        placeholder="Password"
+        type="password"
+      />
 
       <FormBtn text="Login Now" />
 

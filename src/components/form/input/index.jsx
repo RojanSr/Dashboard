@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   InputGroup,
   InputLeftElement,
@@ -8,15 +8,23 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { ViewIcon, ViewOffIcon, UnlockIcon } from "@chakra-ui/icons";
 
 const FormInput = ({ leftIcon, placeholder, type }) => {
   const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
+
   return (
     <InputGroup size={{ base: "md", lg: "lg" }} mb="10px">
       <InputLeftElement>
-        <Image src={leftIcon} w="24px" h="24px" />
+        {type === "password" ? (
+          show ? (
+            <UnlockIcon />
+          ) : (
+            leftIcon
+          )
+        ) : (
+          <Image src={leftIcon} w="18px" h="18px" />
+        )}
       </InputLeftElement>
       <Input
         type={type == "password" ? (show ? "text" : "password") : type}
@@ -35,7 +43,9 @@ const FormInput = ({ leftIcon, placeholder, type }) => {
       {type === "password" && (
         <InputRightElement
           width="4.5rem"
-          onClick={handleClick}
+          onMouseDown={() => setShow(true)}
+          onMouseUp={() => setShow(false)}
+          onMouseLeave={() => setShow(false)}
           cursor="pointer"
         >
           {show ? <ViewOffIcon /> : <ViewIcon />}
