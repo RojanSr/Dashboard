@@ -59,6 +59,7 @@ export default function Header({ toggleBar, isOpen }) {
             onClick={() => toggleBar()}
           />
           <ChevronLeftIcon
+            display={{ base: "block", md: "none" }}
             fontSize="28px"
             cursor="pointer"
             onClick={() => toggleBar()}
