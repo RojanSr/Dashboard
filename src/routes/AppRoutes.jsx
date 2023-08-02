@@ -4,9 +4,28 @@ import Layout from "../components/Layout";
 import Dashboard from "../pages/Dashboard";
 import BodyComponent from "../components/BodyComponent";
 import { useRoutes } from "react-router-dom";
+import LoginPage from "../pages/Login";
+import Login from "../pages/Login/Login";
+import Signup from "../pages/Login/Signup";
 
 const AppRoutes = () => {
   const routes = [
+    {
+      path: NAVIGATION_ROUTES.LOGIN,
+      element: (
+        <LoginPage>
+          <Login />
+        </LoginPage>
+      ),
+    },
+    {
+      path: NAVIGATION_ROUTES.SIGNUP,
+      element: (
+        <LoginPage>
+          <Signup />
+        </LoginPage>
+      ),
+    },
     {
       path: NAVIGATION_ROUTES.DASHBOARD,
       element: (
