@@ -65,7 +65,8 @@ const LoginPage = ({ children }) => {
             color="#fff"
             fontWeight="700"
           >
-            Very good works are waiting for you Login Now!!!
+            Very good works are waiting for you{" "}
+            {children.type.name === "Signup" ? "Join Now" : "Log in Now"}!!!
           </Text>
 
           <Image

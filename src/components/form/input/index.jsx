@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   InputGroup,
   InputLeftElement,
   InputRightElement,
   Input,
   Image,
-  Button,
 } from "@chakra-ui/react";
 
 import { ViewIcon, ViewOffIcon, UnlockIcon } from "@chakra-ui/icons";
@@ -46,6 +45,9 @@ const FormInput = ({ leftIcon, placeholder, type }) => {
           onMouseDown={() => setShow(true)}
           onMouseUp={() => setShow(false)}
           onMouseLeave={() => setShow(false)}
+          onTouchStart={() => setShow(true)}
+          onTouchEnd={() => setShow(false)}
+          onTouchCancel={() => setShow(false)}
           cursor="pointer"
         >
           {show ? <ViewOffIcon /> : <ViewIcon />}

@@ -28,7 +28,7 @@ const Login = () => {
         LOGIN
       </Text>
       <Text mb={4} textAlign="center" opacity="0.7">
-        How to i get started lorem ipsum dolor at?
+        How do i get started lorem ipsum dolor at?
       </Text>
 
       <FormInput leftIcon={UsernameIcon} placeholder="Username" type="text" />
