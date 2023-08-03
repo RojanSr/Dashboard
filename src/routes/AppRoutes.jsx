@@ -7,6 +7,7 @@ import { useRoutes } from "react-router-dom";
 import LoginPage from "../pages/Login";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Login/Signup";
+import HookForm from "../components/HookForm";
 
 const AppRoutes = () => {
   const routes = [
@@ -17,6 +18,10 @@ const AppRoutes = () => {
           <Login />
         </LoginPage>
       ),
+    },
+    {
+      path: "/hookform",
+      element: <HookForm />,
     },
     {
       path: NAVIGATION_ROUTES.SIGNUP,

@@ -14,6 +14,9 @@ export const theme = extendTheme({
           border: "0px !important",
         },
       },
+      input: {
+        border: "1px solid black",
+      },
     },
   },
 });

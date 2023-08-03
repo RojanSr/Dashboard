@@ -5,6 +5,7 @@ const FormBtn = ({ text }) => {
   return (
     <Box>
       <Button
+        type="submit"
         color="#fff"
         fontSize="12px"
         bg="linear-gradient(134deg, #9181F4 0%, #5038ED 100%)"

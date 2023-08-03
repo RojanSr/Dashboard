@@ -5,8 +5,8 @@ import { Flex, Box, Select, VStack, Grid, GridItem } from "@chakra-ui/react";
 const caseData = [
   { title: "Total Cases Allotted to Me", quantity: 65 },
   { title: "Non-Actioned Cases", quantity: 26, isImp: true, per: "15%" },
-  { title: "Total Cases Allotted to Me", quantity: 21 },
-  { title: "Total Cases Allotted to Me", quantity: 45, per: "85%" },
+  { title: "Cases Below Me", quantity: 21 },
+  { title: "Total Cases Resolved", quantity: 45, per: "85%" },
 ];
 
 const filterData = [
@@ -48,7 +48,9 @@ const Dashboard = () => {
               fontWeight="500"
             >
               {data.filter.map((item) => (
-                <option value={item}>{item}</option>
+                <option value={item} key={item}>
+                  {item}
+                </option>
               ))}
             </Select>
           </Box>
