@@ -43,7 +43,7 @@ const SelectAction = ({ name, placeholder }) => {
       <Text mb={2}>{name}</Text>
       <Select
         placeholder={placeholder}
-        w={{ base: "140px", md: "190px", lg: "250px" }}
+        w={{ base: "140px", md: "190px", lg: "218px" }}
         mb="24px"
         py={2}
         color="#3E4954;"
@@ -72,7 +72,7 @@ const InputAction = ({ name, placeholder }) => {
   return (
     <GridItem>
       <Text>{name}</Text>
-      <HStack w={{ base: "140px", md: "190px", lg: "250px" }}>
+      <HStack w={{ base: "140px", md: "190px", lg: "218px" }}>
         <Input
           w="inherit"
           placeholder={placeholder}

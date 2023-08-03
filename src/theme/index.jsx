@@ -6,6 +6,7 @@ export const theme = extendTheme({
       body: {
         fontFamily: "'Poppins', sans-serif",
         overflowX: "hidden",
+        maxWidth: "100vw",
       },
       a: {
         _hover: {

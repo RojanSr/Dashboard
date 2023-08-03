@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import ProfileIcon from "../../assets/ProfileIcon.svg";
 import EditPicture from "../../assets/edit_picture.svg";
 import {
@@ -22,15 +22,41 @@ import UserProfileExtend from "./UserProfileExtend";
 import UserPhoto from "../../assets/UserPhoto.svg";
 import ShowIcon from "../../assets/showIcon.svg";
 import SecondaryBtn from "../button/SecondaryBtn";
+import UserStat from "./UserStat";
 
 const UserProfile = () => {
+  const [tags, setTags] = useState(["Tag 1", "Tag 2"]);
   const btns = [
     { name: "SOA" },
     { name: "Stat Card" },
     { name: "Repayment-Schedule" },
   ];
 
+  function handleRemoveTag(index) {
+    const filteredTag = tags.filter((el, i) => i !== index);
+    setTags(filteredTag);
+  }
+
+  function handleAddTag() {
+    if (tags.length == 5) {
+      return;
+    }
+    const newTag = "Tag " + (tags.length + 1);
+    setTags((prev) => [...prev, newTag]);
+  }
+
   const { isOpen, onToggle } = useDisclosure();
+
+  const data = [
+    { property: "Sanctioned Amount", value: "Rs. 500000" },
+    { property: "Branch", value: "Alwar" },
+    { property: "Product", value: "CDL Product" },
+    { property: "Tenure ", value: "24M 15D" },
+    { property: "Interest Rate ", value: "7.1%" },
+    { property: "Customer Code ", value: "CN000000000000644" },
+    { property: "Prospect No ", value: "172638384" },
+    { property: "NPA Stage ", value: "Regular" },
+  ];
   return (
     <Box
       mx="16px"
@@ -165,90 +191,53 @@ const UserProfile = () => {
             gap="10px"
             display={{ base: "none", md: "none", lg: "flex" }}
           >
-            <Flex gap="40px">
-              <Flex gap="16px" alignItems="center">
-                <Text fontSize="12px" opacity="0.5">
-                  Sanctioned Amount
-                </Text>
-                <Text fontSize="14px">Rs. 500000</Text>
-              </Flex>
-              <Flex gap="16px">
-                <Text fontSize="12px" opacity="0.5">
-                  Branch:
-                </Text>
-                <Text fontSize="14px">Alwar</Text>
-              </Flex>
-              <Flex gap="16px">
-                <Text fontSize="12px" opacity="0.5">
-                  Product
-                </Text>
-                <Text fontSize="14px">CDL Product</Text>
-              </Flex>
-              <Flex gap="16px">
-                <Text fontSize="12px" opacity="0.5">
-                  Tenure
-                </Text>
-                <Text fontSize="14px">24M 15D</Text>
-              </Flex>
-              <Flex gap="16px">
-                <Text fontSize="12px" opacity="0.5">
-                  Interest Rate
-                </Text>
-                <Text fontSize="14px">7.1%</Text>
-              </Flex>
-            </Flex>
-            <Flex gap="40px">
-              <Flex gap="16px">
-                <Text fontSize="12px" opacity="0.5">
-                  Customer Code
-                </Text>
-                <Text fontSize="14px">CN000000000000644</Text>
-              </Flex>
-              <Flex gap="16px">
-                <Text fontSize="12px" opacity="0.5">
-                  Prospect No
-                </Text>
-                <Text fontSize="14px"> 172638384</Text>
-              </Flex>
-              <Flex gap="16px">
-                <Text fontSize="12px" opacity="0.5">
-                  NPA Stage
-                </Text>
-                <Text fontSize="14px">Regular</Text>
-              </Flex>
+            <Flex
+              gap="40px"
+              maxW={{ lg: "500px", xl: "700px" }}
+              rowGap="10px"
+              flexWrap="wrap"
+            >
+              {data.map((el, index) => {
+                return (
+                  <Flex gap="16px" alignItems="center" key={index}>
+                    <UserStat property={el.property} value={el.value} />
+                    {data.length - 1 != index && (
+                      <Divider orientation="vertical" h="24px" w="1px" />
+                    )}
+                  </Flex>
+                );
+              })}
             </Flex>
             <Flex justifyContent="space-between">
               <Flex gap="20px" alignItems="center">
                 <Text opacity="0.5" fontSize="12px">
                   Tags
                 </Text>
-                <Tag
-                  height="20px"
-                  width="94px"
-                  borderRadius="full"
-                  variant="solid"
-                  bgColor="#F1F1F1"
-                  fontFamily="Roboto, sans-serif"
-                >
-                  <TagLabel fontSize="12px" color="#3E4954">
-                    Tag name
-                  </TagLabel>
-                  <TagCloseButton color="#000" />
-                </Tag>
-                <Tag
-                  height="20px"
-                  width="94px"
-                  borderRadius="full"
-                  variant="solid"
-                  bgColor="#F1F1F1"
-                  fontFamily="Roboto, sans-serif"
-                >
-                  <TagLabel fontSize="12px" color="#3E4954">
-                    Tag name
-                  </TagLabel>
-                  <TagCloseButton color="#000" />
-                </Tag>
-                <AddIcon color="#2F4CDD" w="14px" h="14px" cursor="pointer" />
+                {tags.map((tag, index) => (
+                  <Tag
+                    height="20px"
+                    borderRadius="full"
+                    variant="solid"
+                    bgColor="#F1F1F1"
+                    fontFamily="Roboto, sans-serif"
+                    key={index}
+                  >
+                    <TagLabel fontSize="12px" color="#3E4954">
+                      {tag}
+                    </TagLabel>
+                    <TagCloseButton
+                      color="#000"
+                      onClick={() => handleRemoveTag(index)}
+                    />
+                  </Tag>
+                ))}
+                <AddIcon
+                  color="#2F4CDD"
+                  w="14px"
+                  h="14px"
+                  cursor="pointer"
+                  onClick={handleAddTag}
+                />
                 <RepeatClockIcon
                   color="#2F4CDD"
                   w="14px"

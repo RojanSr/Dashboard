@@ -5,7 +5,7 @@ import Sidebar from "./sidebar";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   function updateOpenState() {
     setIsOpen((prevState) => !prevState);
