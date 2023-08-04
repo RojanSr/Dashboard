@@ -60,11 +60,9 @@ const FormInput = ({ leftIcon, placeholder, type, register, errors, name }) => {
           </InputRightElement>
         )}
       </InputGroup>
-      {errors[name] && (
-        <Text color="red.400" fontSize="0.8rem">
-          {errors[name].message}
-        </Text>
-      )}
+      <Text color="red.400" fontSize="0.8rem">
+        {errors[name]?.message}
+      </Text>
     </>
   );
 };

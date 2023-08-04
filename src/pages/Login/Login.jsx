@@ -10,6 +10,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
 import FormBtn from "../../components/button/FormBtn";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { FormSchema as schema } from "../../schema/FormSchema";
 
 import { mifin_colors } from "../../theme/color";
 
@@ -19,35 +21,8 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      username: "",
-      password: "",
-    },
+    resolver: yupResolver(schema),
   });
-
-  // Form Input Register Options
-  const registerOptions = {
-    username: {
-      required: "Username is required",
-      minLength: {
-        value: 4,
-        message: "Username should be atleast 4 characters long",
-      },
-    },
-
-    password: {
-      required: "Password is required",
-      pattern: {
-        value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-        message:
-          "Password should have minimum eight characters, at least one letter and one number",
-      },
-      minLength: {
-        value: 8,
-        message: "Password must have at least 8 characters",
-      },
-    },
-  };
 
   const navigate = useNavigate();
 
@@ -87,7 +62,7 @@ const Login = () => {
           leftIcon={UsernameIcon}
           placeholder="Username"
           type="text"
-          register={register("username", registerOptions.username)}
+          register={register("username")}
           name="username"
           errors={errors}
         />
@@ -96,7 +71,7 @@ const Login = () => {
           leftIcon={<LockIcon />}
           placeholder="Password"
           type="password"
-          register={register("password", registerOptions.password)}
+          register={register("password")}
           name="password"
           errors={errors}
         />

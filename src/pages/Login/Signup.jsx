@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Image } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import FormInput from "../../components/form/input";
 import UsernameIcon from "../../assets/Login/username_icon.svg";
@@ -9,54 +9,16 @@ import FormBtn from "../../components/button/FormBtn";
 import { mifin_colors } from "../../theme/color";
 import { useForm } from "react-hook-form";
 import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
+import { FormSchema as schema } from "../../schema/FormSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const Signup = () => {
-  const registerOptions = {
-    username: {
-      required: "Username is required",
-      minLength: {
-        value: 4,
-        message: "Username should be atleast 4 characters long",
-      },
-    },
-    email: {
-      required: "Email is required",
-      pattern: {
-        value:
-          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-        message: "Email is in Invalid Format",
-      },
-    },
-    password: {
-      required: "Password is required",
-      pattern: {
-        value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-        message:
-          "Password should have minimum eight characters, at least one letter and one number",
-      },
-      minLength: {
-        value: 8,
-        message: "Password must have at least 8 characters",
-      },
-    },
-    confirmPassword: {
-      validate: (value) =>
-        value === getValues("password") || "Passwords do not match",
-    },
-  };
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
   } = useForm({
-    defaultValues: {
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    },
+    resolver: yupResolver(schema),
   });
 
   const navigate = useNavigate();
@@ -96,7 +58,7 @@ const Signup = () => {
           leftIcon={UsernameIcon}
           placeholder="Username"
           type="text"
-          register={register("username", registerOptions.username)}
+          register={register("username")}
           name="username"
           errors={errors}
         />
@@ -104,7 +66,7 @@ const Signup = () => {
           leftIcon={AtIcon}
           placeholder="Email"
           type="email"
-          register={register("email", registerOptions.email)}
+          register={register("email")}
           name="email"
           errors={errors}
         />
@@ -112,7 +74,7 @@ const Signup = () => {
           leftIcon={<LockIcon />}
           placeholder="Password"
           type="password"
-          register={register("password", registerOptions.password)}
+          register={register("password")}
           name="password"
           errors={errors}
         />
@@ -120,10 +82,7 @@ const Signup = () => {
           leftIcon={<LockIcon />}
           placeholder="Confirm Password"
           type="password"
-          register={register(
-            "confirmPassword",
-            registerOptions.confirmPassword
-          )}
+          register={register("confirmPassword")}
           name="confirmPassword"
           errors={errors}
         />
