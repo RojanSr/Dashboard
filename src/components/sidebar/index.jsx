@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import {
   UnorderedList,
   Box,
@@ -44,7 +44,7 @@ const Sidebar = ({ isOpen, toggleBar }) => {
           to={NAVIGATION_ROUTES.DASHBOARD}
           onClick={() => {
             setClickName("Dashboard");
-            toggleBar();
+            // toggleBar();
           }}
         >
           <HStack gap="10px">

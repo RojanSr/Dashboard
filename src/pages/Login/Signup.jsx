@@ -9,15 +9,16 @@ import FormBtn from "../../components/button/FormBtn";
 import { mifin_colors } from "../../theme/color";
 import { useForm } from "react-hook-form";
 import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
-import { FormSchema as schema } from "../../schema/FormSchema";
+import { SignupSchema as schema } from "../../schema/FormSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const Signup = () => {
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm({
+    mode: "onBlur",
     resolver: yupResolver(schema),
   });
 
@@ -25,7 +26,7 @@ const Signup = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    navigate(NAVIGATION_ROUTES.DASHBOARD);
+    navigate(NAVIGATION_ROUTES.LOGIN, { replace: true });
   };
   return (
     <Box
@@ -58,7 +59,7 @@ const Signup = () => {
           leftIcon={UsernameIcon}
           placeholder="Username"
           type="text"
-          register={register("username")}
+          control={control}
           name="username"
           errors={errors}
         />
@@ -66,7 +67,7 @@ const Signup = () => {
           leftIcon={AtIcon}
           placeholder="Email"
           type="email"
-          register={register("email")}
+          control={control}
           name="email"
           errors={errors}
         />
@@ -74,7 +75,7 @@ const Signup = () => {
           leftIcon={<LockIcon />}
           placeholder="Password"
           type="password"
-          register={register("password")}
+          control={control}
           name="password"
           errors={errors}
         />
@@ -82,7 +83,7 @@ const Signup = () => {
           leftIcon={<LockIcon />}
           placeholder="Confirm Password"
           type="password"
-          register={register("confirmPassword")}
+          control={control}
           name="confirmPassword"
           errors={errors}
         />

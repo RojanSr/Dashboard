@@ -11,16 +11,17 @@ import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
 import FormBtn from "../../components/button/FormBtn";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormSchema as schema } from "../../schema/FormSchema";
+import { LoginSchema as schema } from "../../schema/FormSchema";
 
 import { mifin_colors } from "../../theme/color";
 
 const Login = () => {
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm({
+    mode: "onBlur",
     resolver: yupResolver(schema),
   });
 
@@ -28,7 +29,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    navigate(NAVIGATION_ROUTES.DASHBOARD);
+    navigate(NAVIGATION_ROUTES.DASHBOARD, { replace: true });
   };
 
   return (
@@ -62,7 +63,7 @@ const Login = () => {
           leftIcon={UsernameIcon}
           placeholder="Username"
           type="text"
-          register={register("username")}
+          control={control}
           name="username"
           errors={errors}
         />
@@ -71,7 +72,7 @@ const Login = () => {
           leftIcon={<LockIcon />}
           placeholder="Password"
           type="password"
-          register={register("password")}
+          control={control}
           name="password"
           errors={errors}
         />
@@ -87,7 +88,7 @@ const Login = () => {
         color={mifin_colors.primary}
       >
         Don't have an account?
-        <Link to="/signup">
+        <Link to={NAVIGATION_ROUTES.SIGNUP}>
           <Text
             as="span"
             fontWeight="600"

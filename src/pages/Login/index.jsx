@@ -1,5 +1,4 @@
 import React from "react";
-import Login from "./Login";
 import { Box, Image, Text } from "@chakra-ui/react";
 
 import WomenWithTab from "../../assets/Login/women_with_tab.png";

@@ -11,11 +11,23 @@ import {
 
 import { ViewIcon, ViewOffIcon, UnlockIcon } from "@chakra-ui/icons";
 
-const FormInput = ({ leftIcon, placeholder, type, register, errors, name }) => {
+import { useController } from "react-hook-form";
+
+const FormInput = ({ leftIcon, placeholder, type, control, errors, name }) => {
+  const {
+    field,
+    fieldState: { invalid, isTouched, isDirty },
+    formState: { touchedFields, dirtyFields },
+  } = useController({
+    name,
+    control,
+    rules: { required: true },
+  });
+
   const [show, setShow] = useState(false);
 
   return (
-    <>
+    <Box w="400px">
       <InputGroup size={{ base: "md", lg: "lg" }} mb="10px">
         <InputLeftElement>
           {type === "password" ? (
@@ -41,8 +53,10 @@ const FormInput = ({ leftIcon, placeholder, type, register, errors, name }) => {
             fontSize: "12px",
             fontWeight: 400,
           }}
-          name={name}
-          {...register}
+          name={field.name}
+          onChange={field.onChange}
+          onBlur={field.onBlur}
+          value={field.value !== undefined ? field.value : ""}
         />
 
         {type === "password" && (
@@ -60,10 +74,10 @@ const FormInput = ({ leftIcon, placeholder, type, register, errors, name }) => {
           </InputRightElement>
         )}
       </InputGroup>
-      <Text color="red.400" fontSize="0.8rem">
-        {errors[name]?.message}
+      <Text color="red.400" fontSize="0.8rem" textAlign="center">
+        {errors[field.name]?.message}
       </Text>
-    </>
+    </Box>
   );
 };
 
