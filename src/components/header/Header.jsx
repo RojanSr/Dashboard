@@ -26,6 +26,7 @@ import CompanyLogo from "../../assets/CompanyLogo.png";
 import NotificationIcon from "../../assets/notification.svg";
 import { Link } from "react-router-dom";
 import delToken from "../../utils/delToken";
+import MinfinLogo from "./minfinLogo";
 
 export default function Header({ toggleBar, isOpen }) {
   let date = new Date();
@@ -70,29 +71,7 @@ export default function Header({ toggleBar, isOpen }) {
             transition="0.12s ease-in"
           />
           <Link to={NAVIGATION_ROUTES.DASHBOARD}>
-            <HStack gap="10px">
-              <Image
-                src={MainLogo}
-                h={{ base: "32px", md: "42px" }}
-                w={{ base: "32px", md: "42px" }}
-              />
-              <Box lineHeight="16px">
-                <Text
-                  color={{ base: "#000", md: "#3696C6" }}
-                  fontSize={{ base: "18px", md: "24px" }}
-                  fontWeight="800"
-                >
-                  miFIN
-                </Text>
-                <Text
-                  color={{ base: "#000", md: "#0F6889" }}
-                  fontSize={{ base: "8px", md: "12px" }}
-                  fontWeight="500"
-                >
-                  qualtech
-                </Text>
-              </Box>
-            </HStack>
+            <MinfinLogo />
           </Link>
         </Flex>
 

@@ -29,21 +29,6 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  // const onSubmit = (data) => {
-  //   axios
-  //     .post("https://api.escuelajs.co/api/v1/auth/login", {
-  //       username: data.username,
-  //       password: data.password,
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  // navigate(NAVIGATION_ROUTES.DASHBOARD, { replace: true });
-  //     })
-  //     .catch((err) => console.error(err));
-
-  //   // console.log(data);
-  // };
-
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(

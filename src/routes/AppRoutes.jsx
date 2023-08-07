@@ -8,7 +8,8 @@ import LoginPage from "../pages/Login";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Login/Signup";
 import getToken from "../utils/getToken";
-import delToken from "../utils/delToken";
+import PostPage from "../pages/Post/PostPage";
+import UsersPage from "../pages/Users/UsersPage";
 
 const AppRoutes = () => {
   const [token, setToken] = useState(null);
@@ -49,10 +50,30 @@ const AppRoutes = () => {
       ),
     },
     {
-      path: NAVIGATION_ROUTES.USERS,
+      path: NAVIGATION_ROUTES.CLIENT,
       element: token ? (
         <Layout>
           <BodyComponent />
+        </Layout>
+      ) : (
+        <Navigate to={NAVIGATION_ROUTES.LOGIN} />
+      ),
+    },
+    {
+      path: NAVIGATION_ROUTES.POSTS,
+      element: token ? (
+        <Layout>
+          <PostPage />
+        </Layout>
+      ) : (
+        <Navigate to={NAVIGATION_ROUTES.LOGIN} />
+      ),
+    },
+    {
+      path: NAVIGATION_ROUTES.USERS,
+      element: token ? (
+        <Layout>
+          <UsersPage />
         </Layout>
       ) : (
         <Navigate to={NAVIGATION_ROUTES.LOGIN} />
