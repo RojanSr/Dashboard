@@ -13,6 +13,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema as schema } from "../../schema/FormSchema";
 
+import axios from "axios";
+
 import { mifin_colors } from "../../theme/color";
 
 const Login = () => {
@@ -27,9 +29,36 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    navigate(NAVIGATION_ROUTES.DASHBOARD, { replace: true });
+  // const onSubmit = (data) => {
+  //   axios
+  //     .post("https://api.escuelajs.co/api/v1/auth/login", {
+  //       username: data.username,
+  //       password: data.password,
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  // navigate(NAVIGATION_ROUTES.DASHBOARD, { replace: true });
+  //     })
+  //     .catch((err) => console.error(err));
+
+  //   // console.log(data);
+  // };
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(
+        "https://api.escuelajs.co/api/v1/auth/login",
+        {
+          email: data.username,
+          password: data.password,
+        }
+      );
+      const token = response.data;
+      localStorage.setItem("AccessToken", token["access_token"]);
+      navigate(NAVIGATION_ROUTES.DASHBOARD, { replace: true });
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
   return (

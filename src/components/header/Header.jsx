@@ -25,6 +25,7 @@ import MainLogo from "../../assets/MainLogo.svg";
 import CompanyLogo from "../../assets/CompanyLogo.png";
 import NotificationIcon from "../../assets/notification.svg";
 import { Link } from "react-router-dom";
+import delToken from "../../utils/delToken";
 
 export default function Header({ toggleBar, isOpen }) {
   let date = new Date();
@@ -165,7 +166,7 @@ export default function Header({ toggleBar, isOpen }) {
               <MenuItem>Profile</MenuItem>
               <MenuItem>History</MenuItem>
               <MenuItem>Settings</MenuItem>
-              <MenuItem>Log Out</MenuItem>
+              <MenuItem onClick={() => delToken()}>Log Out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
