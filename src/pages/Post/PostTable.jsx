@@ -12,14 +12,8 @@ import {
 import TruncText from "../../utils/TruncText";
 
 const PostTable = ({ headings, data }) => {
-  const truncateLength = 50;
   return (
-    <TableContainer
-      borderRadius="16px"
-      px={4}
-      overflowX="hidden"
-      fontSize="14px"
-    >
+    <TableContainer borderRadius="16px" overflowX="auto" fontSize="14px">
       <Table variant="striped" colorScheme="gray">
         <Thead>
           <Tr>
@@ -41,7 +35,7 @@ const PostTable = ({ headings, data }) => {
                 <TruncText text={el.body} />
               </Td>
               <Td>
-                <Flex gap="8px">
+                <Flex gap="12px">
                   <EditIcon boxSize={6} color="blackAlpha.800" />
                   <DeleteIcon boxSize={6} color="blackAlpha.800" />
                   <ViewIcon boxSize={6} color="blackAlpha.800" />

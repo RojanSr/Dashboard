@@ -21,9 +21,8 @@ import {
 import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
 
 // assets import
-import MainLogo from "../../assets/MainLogo.svg";
 import CompanyLogo from "../../assets/CompanyLogo.png";
-import NotificationIcon from "../../assets/notification.svg";
+import { IoMdNotificationsOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import delToken from "../../utils/delToken";
 import MinfinLogo from "./minfinLogo";
@@ -102,7 +101,7 @@ export default function Header({ toggleBar, isOpen }) {
                   content: "'13'",
                   position: "absolute",
                   top: "0px",
-                  right: "-6px",
+                  right: "-10px",
                   backgroundColor: "#FF0909",
                   padding: "0px 4px",
                   fontSize: "11px",
@@ -112,7 +111,7 @@ export default function Header({ toggleBar, isOpen }) {
                 }}
                 cursor="pointer"
               >
-                <Image src={NotificationIcon} />
+                <IoMdNotificationsOutline fontSize="34px" />
               </Box>
 
               <Box cursor="pointer">

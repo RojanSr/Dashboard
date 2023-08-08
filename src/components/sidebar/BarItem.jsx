@@ -45,7 +45,11 @@ const BarItem = ({ items, clickName, toggleClickName }) => {
               <Image src={SiderbarIcon} w="24px" h="24px" />
               <Text>{items.name}</Text>
             </HStack>
-            <ChevronRightIcon />
+            <ChevronRightIcon
+              transform={isOpen ? "rotate(90deg)" : "rotate(0deg)"}
+              transition="0.2s ease-in"
+              boxSize={5}
+            />
           </HStack>
         </ListItem>
         <Collapse in={isOpen} animateOpacity>

@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Box } from "@chakra-ui/react";
+import { Button, Box, Text } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
 
 export default function SecondaryBtn(props) {
   return (
@@ -14,7 +15,10 @@ export default function SecondaryBtn(props) {
         // minW={"90px"}
         // textOverflow={"ellipsis"}
       >
-        {props.name}
+        <Box display="flex" alignItems="center" gap="10px">
+          <AddIcon />
+          <Text>{props.name}</Text>
+        </Box>
       </Button>
     </Box>
   );

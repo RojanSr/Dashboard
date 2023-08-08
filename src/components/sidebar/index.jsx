@@ -1,14 +1,6 @@
 import React, { Fragment, useState } from "react";
-import {
-  UnorderedList,
-  Box,
-  Flex,
-  Image,
-  Text,
-  HStack,
-} from "@chakra-ui/react";
+import { UnorderedList, Box, Flex } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import MainLogo from "../../assets/MainLogo.svg";
 import BarItem from "./BarItem";
 
 import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
@@ -39,6 +31,7 @@ const Sidebar = ({ isOpen, toggleBar }) => {
     <Box
       as="nav"
       h="100vh"
+      overflowY="auto"
       bg="#1A2139"
       minW="16vw"
       color="#fff"
