@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Box } from "@chakra-ui/react";
+import { Text, Box, useToast } from "@chakra-ui/react";
 import UsernameIcon from "../../assets/Login/username_icon.svg";
 import { LockIcon } from "@chakra-ui/icons";
 import FormInput from "../../components/form/input";
@@ -12,12 +12,17 @@ import FormBtn from "../../components/button/FormBtn";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema as schema } from "../../schema/FormSchema";
+import _ from "lodash";
 
 import axios from "axios";
 
 import { mifin_colors } from "../../theme/color";
 
 const Login = () => {
+  // function debounceValidate() {
+  //   return yupResolver(schema);
+  // }
+
   const {
     control,
     handleSubmit,
@@ -25,7 +30,10 @@ const Login = () => {
   } = useForm({
     mode: "onBlur",
     resolver: yupResolver(schema),
+    // resolver: _.debounce(debounceValidate, 3000),
   });
+
+  const toast = useToast();
 
   const navigate = useNavigate();
 
@@ -41,8 +49,26 @@ const Login = () => {
       const token = response.data;
       localStorage.setItem("AccessToken", token["access_token"]);
       navigate(NAVIGATION_ROUTES.DASHBOARD, { replace: true });
+      toast({
+        title: "Logged in",
+        description: "Welcome back user",
+        status: "success",
+        position: "top",
+        colorScheme: "green",
+        duration: 4000,
+        isClosable: true,
+      });
     } catch (error) {
       console.error("Login failed:", error);
+      toast({
+        title: "No existing user found",
+        description: "Please try again",
+        status: "error",
+        position: "top",
+        colorScheme: "red",
+        duration: 6000,
+        isClosable: true,
+      });
     }
   };
 

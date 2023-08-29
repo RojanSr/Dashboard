@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import ProfileIcon from "../../assets/ProfileIcon.svg";
 import EditPicture from "../../assets/edit_picture.svg";
 import {
@@ -250,9 +250,9 @@ const UserProfile = () => {
 
               <Flex gap="10px">
                 {btns.map((btn) => (
-                  <Fragment key={btn.name}>
+                  <Box key={btn.name}>
                     <SecondaryBtn name={btn.name} />
-                  </Fragment>
+                  </Box>
                 ))}
 
                 <Box onClick={onToggle} cursor="pointer">

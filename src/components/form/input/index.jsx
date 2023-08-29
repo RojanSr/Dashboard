@@ -27,7 +27,7 @@ const FormInput = ({ leftIcon, placeholder, type, control, errors, name }) => {
   const [show, setShow] = useState(false);
 
   return (
-    <Box w="400px">
+    <Box w={{ base: "300px", md: "400px" }}>
       <InputGroup size={{ base: "md", lg: "lg" }} mb="10px">
         <InputLeftElement>
           {type === "password" ? (

@@ -1,10 +1,9 @@
 import React from "react";
 import { Button, Box, Text } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
 
 export default function SecondaryBtn(props) {
   return (
-    <Box>
+    <>
       <Button
         color={props.isRed ? "#FF0909" : "#2F4CDD"}
         fontSize="14px"
@@ -12,14 +11,19 @@ export default function SecondaryBtn(props) {
         bg="none"
         border={props.isRed ? "1px solid #FF0909" : "1px solid #2F4CDD"}
         p="4px 16px"
-        // minW={"90px"}
-        // textOverflow={"ellipsis"}
+        _hover={{
+          background: "rgba(0,0,0,0.05)",
+        }}
+        _active={{
+          background: "rgba(0,0,0,0.15)",
+        }}
       >
         <Box display="flex" alignItems="center" gap="10px">
-          <AddIcon />
-          <Text>{props.name}</Text>
+          {/* This is same as {props.icon && props.icon} */}
+          {props?.icon}
+          {props.name && <Text>{props.name}</Text>}
         </Box>
       </Button>
-    </Box>
+    </>
   );
 }

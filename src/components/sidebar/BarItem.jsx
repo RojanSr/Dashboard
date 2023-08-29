@@ -14,12 +14,10 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 
 const BarItem = ({ items, clickName, toggleClickName }) => {
   const { isOpen, onToggle } = useDisclosure();
-  const [childClick, setChildClick] = useState("");
 
   // Handle which child was clicked and put it in state
 
   function handleChildClick(i) {
-    setChildClick(items.child[i].name);
     toggleClickName(items.child[i].name);
   }
 
@@ -30,7 +28,7 @@ const BarItem = ({ items, clickName, toggleClickName }) => {
       <>
         <ListItem
           p="10px 8px"
-          bgColor={clickName === childClick && "#2295DD"}
+          bgColor={(clickName == "Posts" || clickName == "Users") && "#2295DD"}
           borderRadius="8px"
           cursor="pointer"
           _hover={{

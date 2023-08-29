@@ -1,42 +1,55 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
 import { mifin_colors } from "../../theme/color";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import PostTable from "./PostTable";
 import SecondaryBtn from "../../components/button/SecondaryBtn";
 
-import { RotatingLines } from "react-loader-spinner";
+import CrudModal from "../../components/modal/CrudModal";
+import { AddIcon, RepeatIcon } from "@chakra-ui/icons";
+import { useRef } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const PostPage = () => {
+  const modalRef = useRef(null);
+
+  // Trigger modalOpen
+  function handleModal() {
+    modalRef.current.open();
+  }
+
+  // Heading for Posts Table
   const tableHeadings = ["ID", "Title", "Body", "Actions"];
 
-  // Create function to fetch Posts data from api;
+  // Post modal inputs
+  const modalInputs = [{ name: "Title" }, { name: "Body" }];
+
   function fetchPostsData() {
     return axios.get("https://jsonplaceholder.typicode.com/posts");
   }
 
-  const { isLoading, isError, data, error } = useQuery(
+  const { data, isLoading, error, isFetching, refetch, isError } = useQuery(
     ["posts"],
     fetchPostsData
   );
 
-  if (isLoading) {
+  if (isError) {
+    return <h2>{error.message}</h2>;
+  }
+
+  // Show spinner when loading or data is being fetched
+
+  if (isLoading || isFetching) {
     return (
       <Flex w="inherit" h="inherit" justifyContent="center" alignItems="center">
-        <RotatingLines
-          strokeColor="grey"
-          strokeWidth="5"
-          animationDuration="0.75"
-          width="35"
-          visible={true}
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="lg"
         />
       </Flex>
     );
-  }
-
-  if (isError) {
-    console.error(error);
-    return <Box>Error on fetching data</Box>;
   }
 
   return (
@@ -50,10 +63,22 @@ const PostPage = () => {
         <Text color={mifin_colors.primary} fontSize="28px" fontWeight="600">
           Posts
         </Text>
-
-        <SecondaryBtn name="Create New Post" />
+        <Box display="flex" gap="20px">
+          <Box onClick={handleModal}>
+            <SecondaryBtn name="Create New Post" icon={<AddIcon />} />
+          </Box>
+          <Box onClick={refetch} title="Refresh">
+            <SecondaryBtn icon={<RepeatIcon />} />
+          </Box>
+        </Box>
       </Box>
-      <PostTable headings={tableHeadings} data={data.data} />
+      <PostTable
+        headings={tableHeadings}
+        data={data.data}
+        inputs={modalInputs}
+      />
+
+      <CrudModal ref={modalRef} action="New Post" inputs={modalInputs} posts />
     </Box>
   );
 };

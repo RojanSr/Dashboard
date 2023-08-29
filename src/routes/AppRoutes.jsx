@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NAVIGATION_ROUTES } from "./routes.constant";
 import Layout from "../components/Layout";
 import Dashboard from "../pages/Dashboard";
@@ -12,11 +12,7 @@ import PostPage from "../pages/Post/PostPage";
 import UsersPage from "../pages/Users/UsersPage";
 
 const AppRoutes = () => {
-  const [token, setToken] = useState(null);
-
-  useEffect(() => {
-    setToken(getToken());
-  }, [getToken()]);
+  const token = getToken();
 
   const routes = [
     {

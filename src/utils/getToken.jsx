@@ -1,6 +1,6 @@
 const getToken = () => {
   let accessToken = localStorage.getItem("AccessToken");
-  return accessToken;
+  return !!accessToken;
 };
 
 export default getToken;

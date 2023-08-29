@@ -1,14 +1,24 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { UnorderedList, Box, Flex } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import BarItem from "./BarItem";
 
-import { NAVIGATION_ROUTES } from "../../routes/routes.constant";
-import { Link } from "react-router-dom";
+import {
+  NAVIGATION_ROUTES,
+  NAVIGATION_ROUTES_RELOAD,
+} from "../../routes/routes.constant";
+import { Link, useLocation } from "react-router-dom";
 import MinfinLogo from "../header/minfinLogo";
 
 const Sidebar = ({ isOpen, toggleBar }) => {
   const [clickName, setClickName] = useState("Dashboard");
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const { pathname } = location;
+    setClickName(NAVIGATION_ROUTES_RELOAD[pathname]);
+  }, [location]);
 
   const sidebars = [
     { name: "Dashboard", path: NAVIGATION_ROUTES.DASHBOARD },

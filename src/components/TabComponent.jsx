@@ -80,7 +80,9 @@ const TabComponent = () => {
         </TabPanel>
       </TabPanels>
       <VStack my="22px">
-        <SecondaryBtn name="View All" />
+        <Box>
+          <SecondaryBtn name="View All" />
+        </Box>
       </VStack>
     </Tabs>
   );

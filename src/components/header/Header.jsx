@@ -109,6 +109,7 @@ export default function Header({ toggleBar, isOpen }) {
                   borderRadius: "6px",
                   color: "#fff",
                 }}
+                title="Show notification"
                 cursor="pointer"
               >
                 <IoMdNotificationsOutline fontSize="34px" />
@@ -137,7 +138,7 @@ export default function Header({ toggleBar, isOpen }) {
           </Box>
 
           <Menu>
-            <MenuButton as={Button} bg="none" px={-3}>
+            <MenuButton as={Button} bg="none" px={-3} title="Menu">
               <ChevronDownIcon fontSize="28px" cursor="pointer" />
             </MenuButton>
             <MenuList>

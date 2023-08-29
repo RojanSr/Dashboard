@@ -1,5 +1,5 @@
 import { Flex, Text, Divider, Box } from "@chakra-ui/react";
-import React, { Fragment } from "react";
+import React from "react";
 import RecordAction from "./RecordAction";
 import UpcomingPTP from "./UpcomingPTP";
 import SecondaryBtn from "../../components/button/SecondaryBtn";
@@ -47,9 +47,9 @@ const Contact = () => {
 
           {/* Buttons */}
           {buttons.map((btn) => (
-            <Fragment key={btn.name}>
+            <Box key={btn.name}>
               <SecondaryBtn name={btn.name} />
-            </Fragment>
+            </Box>
           ))}
           <Divider
             orientation="vertical"
@@ -58,7 +58,9 @@ const Contact = () => {
             color="#000"
             mx="25.5"
           />
-          <SecondaryBtn name="Escalate" isRed />
+          <Box>
+            <SecondaryBtn name="Escalate" isRed />
+          </Box>
         </Flex>
       </Flex>
 

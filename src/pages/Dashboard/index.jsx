@@ -6,6 +6,7 @@ import { ScatterChart } from "../../components/chartjs/ScatterChart";
 import { RadarChart } from "../../components/chartjs/RadarChart";
 import { MultitypeChart } from "../../components/chartjs/MultitypeChart";
 import { LineChart } from "../../components/chartjs/LIneChart";
+import ChartCard from "../../components/chartjs/ChartCard";
 
 const caseData = [
   { title: "Total Cases Allotted to Me", quantity: 65 },
@@ -28,7 +29,7 @@ const filterData = [
 const Dashboard = () => {
   return (
     <VStack m="27px 35px">
-      <Flex gap="19px">
+      <Flex gap="19px" justifyContent="center">
         {caseData.map((el) => (
           <Fragment key={el.title}>
             <CaseCard
@@ -66,56 +67,22 @@ const Dashboard = () => {
         justifyContent="center"
         gap="25px"
         mt={2}
-        templateColumns="repeat(2, 1fr)"
+        templateColumns={{ md: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
       >
-        <GridItem
-          boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.07)"
-          borderRadius="15px"
-          border="1px solid #E5EAF2"
-        >
-          <VStack h="400px" py={2} px={2} justifyContent="center">
-            <DoughnutChart />
-          </VStack>
+        <GridItem>
+          <ChartCard chart={<DoughnutChart />} />
         </GridItem>
-        <GridItem
-          boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.07)"
-          borderRadius="15px"
-          border="1px solid #E5EAF2"
-        >
-          <VStack h="400px" py={2} px={2} justifyContent="center">
-            <MultitypeChart />
-          </VStack>
+        <GridItem>
+          <ChartCard chart={<MultitypeChart />} />
         </GridItem>
-        <GridItem
-          minW="544px"
-          minH="318px"
-          boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.07)"
-          borderRadius="15px"
-          border="1px solid #E5EAF2"
-        >
-          <VStack h="400px" py={2} px={2} justifyContent="center">
-            <RadarChart />
-          </VStack>
+        <GridItem>
+          <ChartCard chart={<RadarChart />} />
         </GridItem>
-        <GridItem
-          minW="544px"
-          minH="318px"
-          boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.07)"
-          borderRadius="15px"
-          border="1px solid #E5EAF2"
-        >
-          <VStack h="400px" py={2} px={2} justifyContent="center">
-            <LineChart />
-          </VStack>
+        <GridItem>
+          <ChartCard chart={<LineChart />} />
         </GridItem>
-        <GridItem
-          boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.07)"
-          borderRadius="15px"
-          border="1px solid #E5EAF2"
-          colSpan="2"
-          rowSpan="2"
-        >
-          <ScatterChart />
+        <GridItem colSpan={{ md: "1", lg: "2" }} rowSpan={{ md: "1", lg: "2" }}>
+          <ChartCard chart={<ScatterChart hasSpan={true} />} />
         </GridItem>
       </Grid>
     </VStack>

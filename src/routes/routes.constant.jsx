@@ -6,3 +6,10 @@ export const NAVIGATION_ROUTES = {
   POSTS: "/posts",
   USERS: "/users",
 };
+
+export const NAVIGATION_ROUTES_RELOAD = {
+  "/": "Dashboard",
+  "/client": "Client Info",
+  "/posts": "Posts",
+  "/users": "Users",
+};
